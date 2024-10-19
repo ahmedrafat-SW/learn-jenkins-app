@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        BUILD_PATH = '/build'
+        BUILD_PATH = 'build'
     }
     stages {
         stage ('scm pipeline') {
