@@ -41,15 +41,15 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
+            }
 
-                steps {
-                
-                    sh '''
-                        test -f $BUILD_PATH/index.html
-                        npm --version
-                        npm test
-                    '''
-                }
+            steps {
+            
+                sh '''
+                    test -f $BUILD_PATH/index.html
+                    npm --version
+                    npm test
+                '''
             }
         }
     }
