@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+        BUILD_PATH = '/build'
+    }
     stages {
         stage ('scm pipeline') {
             steps {
@@ -29,6 +32,24 @@ pipeline {
 
                     ls -la
                 '''
+            }
+        }
+
+        stage('TEST') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+
+                steps {
+                
+                    sh '''
+                        test -f $BUILD_PATH/index.html
+                        npm --version
+                        npm test
+                    '''
+                }
             }
         }
     }
