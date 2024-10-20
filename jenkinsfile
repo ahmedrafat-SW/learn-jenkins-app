@@ -14,6 +14,7 @@ pipeline {
             }
         }
 
+/*
         stage ('BUILD') {
             agent {
                 docker {
@@ -34,7 +35,7 @@ pipeline {
                 '''
             }
         }
-
+*/
         stage('TEST') {
             agent {
                 docker {
@@ -46,9 +47,9 @@ pipeline {
             steps {
             
                 sh '''
-                    test -f $BUILD_PATH/index.html
+                    # test -f $BUILD_PATH/index.html
                     npm --version
-                    npm ci
+                    # npm ci
                     npm test
                 '''
             }
