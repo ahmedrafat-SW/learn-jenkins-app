@@ -61,14 +61,15 @@ pipeline {
                     image 'mcr.microsoft.com/playwright:v1.48.1-noble'
                     resueNode true
                 }
-
-                steps {
-                    sh ''' 
-                        npm install serve
-                        node_modules/.bin/serve -s build -l 4000
-                    '''
-                }
             }
+
+            steps {
+                sh ''' 
+                    npm install serve
+                    node_modules/.bin/serve -s build -l 4000
+                '''
+            }
+            
         }
     }
 
